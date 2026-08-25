@@ -1,0 +1,362 @@
+/* =====================================================
+   FOOTER - MESMO EFEITO VISUAL DO HEADER
+===================================================== */
+
+footer {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    background:
+
+        /* LUZ CENTRAL ROSÊ */
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(240, 166, 170, 0.42) 0%,
+            rgba(217, 130, 136, 0.22) 22%,
+            transparent 52%
+        ),
+
+        /* LUZ LATERAL */
+        radial-gradient(
+            circle at 85% 50%,
+            rgba(146, 47, 56, 0.30) 0%,
+            transparent 45%
+        ),
+
+        /* BASE */
+        linear-gradient(
+            120deg,
+            #2e1713,
+            #571d18,
+            #8f302b,
+            #571d18,
+            #2e1713
+        );
+
+    background-size:
+        700px 400px,
+        700px 500px,
+        300% 300%;
+
+    background-repeat: no-repeat;
+
+    animation: footerGradient 10s ease-in-out infinite alternate;
+
+    box-shadow:
+        0 -6px 25px rgba(46, 23, 19, 0.35);
+}
+
+
+/* =====================================================
+   REMOVE A WAVE ANTIGA
+===================================================== */
+
+footer > img {
+    display: none;
+}
+
+
+/* =====================================================
+   MOVIMENTO DO FUNDO
+===================================================== */
+
+@keyframes footerGradient {
+
+    0% {
+        background-position:
+            20% 50%,
+            100% 50%,
+            0% 50%;
+    }
+
+    50% {
+        background-position:
+            55% 40%,
+            75% 50%,
+            100% 50%;
+    }
+
+    100% {
+        background-position:
+            80% 50%,
+            30% 50%,
+            0% 50%;
+    }
+}
+
+
+/* =====================================================
+   REFLEXO / FLASH
+===================================================== */
+
+footer::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 260%;
+
+    top: -80%;
+    left: -400px;
+
+    background: linear-gradient(
+        90deg,
+
+        transparent 0%,
+
+        rgba(255, 255, 255, 0.01) 20%,
+
+        rgba(245, 212, 161, 0.08) 35%,
+
+        rgba(240, 166, 170, 0.18) 44%,
+
+        rgba(255, 255, 255, 0.32) 50%,
+
+        rgba(240, 166, 170, 0.18) 56%,
+
+        rgba(245, 212, 161, 0.08) 65%,
+
+        transparent 100%
+    );
+
+    filter: blur(28px);
+
+    transform: rotate(18deg);
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation: footerFlash 8s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   MOVIMENTO DO REFLEXO
+===================================================== */
+
+@keyframes footerFlash {
+
+    0% {
+        left: -400px;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0.9;
+    }
+
+    70% {
+        opacity: 0.9;
+    }
+
+    100% {
+        left: calc(100% + 350px);
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   CONTEÚDO DO FOOTER - DESKTOP
+===================================================== */
+
+#footer_items {
+    width: 100%;
+
+    min-height: 110px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 25px 8%;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   COPYRIGHT - DESKTOP
+===================================================== */
+
+#copyright {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    color: #ffffff;
+
+    font-weight: 500;
+
+    letter-spacing: 0.3px;
+
+    white-space: nowrap;
+
+    text-align: center;
+
+    z-index: 3;
+}
+
+
+/* =====================================================
+   REDES SOCIAIS
+===================================================== */
+
+#footer_items .social-media-buttons {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+#footer_items .social-media-buttons a {
+    background: rgba(255, 255, 255, 0.95);
+
+    border: 1px solid rgba(240, 166, 170, 0.20);
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.28);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+#footer_items .social-media-buttons a i {
+    color: #711f27;
+}
+
+
+#footer_items .social-media-buttons a:hover {
+    transform: translateY(-5px) scale(1.06);
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.40),
+        0 0 20px rgba(240, 166, 170, 0.20);
+}
+
+
+#footer_items .social-media-buttons a:hover i {
+    color: #d98288;
+}
+
+
+/* =====================================================
+   TABLET + MOBILE
+===================================================== */
+
+@media screen and (max-width: 900px) {
+
+    #footer_items {
+        min-height: auto;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 18px;
+
+        padding: 28px 20px;
+
+        text-align: center;
+    }
+
+
+    /* COPYRIGHT */
+
+    #copyright {
+        position: static;
+
+        left: auto;
+        top: auto;
+
+        transform: none;
+
+        width: 100%;
+
+        text-align: center;
+
+        white-space: nowrap;
+
+        order: 1;
+    }
+
+
+    /* REDES SOCIAIS */
+
+    #footer_items .social-media-buttons {
+        position: static;
+
+        width: 100%;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 16px;
+
+        order: 2;
+    }
+
+
+    footer::before {
+        width: 180px;
+    }
+}
+
+
+/* =====================================================
+   CELULARES PEQUENOS
+===================================================== */
+
+@media screen and (max-width: 480px) {
+
+    #footer_items {
+        padding: 25px 15px;
+
+        gap: 16px;
+    }
+
+
+    #copyright {
+        font-size: 0.9rem;
+    }
+
+
+    #footer_items .social-media-buttons {
+        gap: 14px;
+    }
+
+
+    footer::before {
+        width: 140px;
+    }
+}
